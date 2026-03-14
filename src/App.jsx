@@ -7,8 +7,13 @@ const App = () => {
     <>
       <h1>Pokemon API</h1>
 
-        <Button />
-        
+
+        {/* Tarjetas*/}
+
+        <div className="btnContainer">
+        <Button text="Anterior" />
+        <Button text="Siguiente" />
+        </div>
 
 
 
