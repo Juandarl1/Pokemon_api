@@ -1,11 +1,18 @@
+@use "variables";
+
 .btn{
-    background-color: #4CAF50; /* Green */
+    background-color: variables.$color1; /* Green */
     color: white;
-    padding: 15px 32px;
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     border-radius: 50px 30px 30px 50px;
-    & _box{
-        border: 1px solid black;
-    }
+    width: 60px;
+    height: 60px;
+    border: none;
+    cursor: pointer;
+}
+
+
+.btnbox{
+    border: 1px solid black;
 }
