@@ -1,7 +1,7 @@
-@use "variables";
+@use "variables" as v;
 
 .btn{
-    background-color: variables.$color1; /* Green */
+    background-color: v.$color1; /* Green */
     color: white;
     text-align: center;
     font-size: 12px;
