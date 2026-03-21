@@ -25,7 +25,7 @@ const fetchAllPokemons = () => {
   for (let i = 0; i <= 20; i++) {
     fetchPokemons(i)
   }
-
+}
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
