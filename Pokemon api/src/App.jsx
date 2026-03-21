@@ -16,6 +16,8 @@ const fetchPokemons = async (id) => {
   const data =  await response.json()
   console.log(data)
   setPokemonData(data)
+
+  
 } catch (error) {
   console.error('Error fetching Pokemon data:', error)
 }
