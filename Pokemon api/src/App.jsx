@@ -10,16 +10,22 @@ function App() {
 
 
 
-  const fetchPokemons = async (id) => {
-   try {
-    const response = await fetch(`${BASE_URL}${id}`)
-    const data = await response.json()
-    console.log(data)
-    setPokemonData(data)
-  } catch (error) {
-    console.error('Error fetching Pokemon data:', error)
+const fetchPokemons = async (id) => {
+ try {
+  const response = await fetch(`${BASE_URL}${id}`)
+  const data =  await response.json()
+  console.log(data)
+  setPokemonData(data)
+} catch (error) {
+  console.error('Error fetching Pokemon data:', error)
+}
+}
+
+const fetchAllPokemons = () => {
+  for (let i = 0; i <= 20; i++) {
+    fetchPokemons(i)
   }
-  }
+
 
   useEffect(() => {
     /* eslint-disable react-hooks/set-state-in-effect */
@@ -28,10 +34,11 @@ function App() {
 
 
   return (
-    <div>
-     <PokemonCard />
-     <PokemonCard />
-     <PokemonCard />
+    <div className='grid grid-cols-2 gap-4'>
+     <PokemonCard  PokemonData={PokemonData}/>
+     <PokemonCard PokemonData={null}/>
+     <PokemonCard PokemonData={null}/>
+     <PokemonCard PokemonData={null}/>
     </div>
   )
 }
