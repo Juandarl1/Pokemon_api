@@ -5,43 +5,65 @@ import PokemonCard from './components/PokemonCard'
 function App() {
   // const [count, setCount] = useState(0)
 
-  const [PokemonData, setPokemonData] = useState(null)
+  const [PokemonData, setPokemonData] = useState([])
   const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/'
 
 
 
-const fetchPokemons = async (id) => {
- try {
-  const response = await fetch(`${BASE_URL}${id}`)
-  const data =  await response.json()
-  console.log(data)
-  setPokemonData(data)
+// // eslint-disable-next-line react-hooks/exhaustive-deps
+// const fetchPokemons = async (id) => {
+//  try {
+//   const response = await fetch(`${BASE_URL}${id}`)
+//   const data =  await response.json()
+//   // console.log(data)
+//     // setPokemonData(data)
+//   setPokemonData((prevPokemonData) => [...prevPokemonData, data])
+//   console.log(PokemonData)
 
   
-} catch (error) {
-  console.error('Error fetching Pokemon data:', error)
-}
-}
+// } catch (error) {
+//   console.error('Error fetching Pokemon data:', error)
+// }
+// }
 
-const fetchAllPokemons = () => {
-  for (let i = 0; i <= 20; i++) {
-    fetchPokemons(i)
+useEffect(() => {
+  const fetchAllPokemons = async () => {
+    try {
+      const requests = []
+      for (let i = 1; i <= 105; i++) {
+        requests.push(fetch(`${BASE_URL}${i}`).then((r) => r.json()))
+      }
+      const results = await Promise.all(requests)
+      setPokemonData(results)
+    } catch (error) {
+      console.error('Error fetching Pokemon data:', error)
+    }
   }
-}
 
-  useEffect(() => {
-    /* eslint-disable react-hooks/set-state-in-effect */
-    fetchPokemons(1)
-  }, [])
+  fetchAllPokemons()
+}, [])
 
 
   return (
-    <div className='grid grid-cols-2 gap-4'>
-     <PokemonCard  PokemonData={PokemonData}/>
-     <PokemonCard PokemonData={null}/>
-     <PokemonCard PokemonData={null}/>
-     <PokemonCard PokemonData={null}/>
-    </div>
+
+       <><header className='bg-blue-500 text-white col-span-3 font-bold font-family: Arial, sans-serif;  text-left mb-4'>
+        <h1 className='text-3xl font-bold'>Pokemon API</h1>
+      </header>
+    
+    <div className='flex flex-wrap items-center gap-4 p-4'>
+
+
+
+        {PokemonData.map((pokemon) => (
+          <PokemonCard key={pokemon.id} PokemonData={pokemon} />
+        ))}
+        {/* <PokemonCard  PokemonData={PokemonData}/>
+    <PokemonCard PokemonData={null}/>
+    <PokemonCard PokemonData={null}/>
+    <PokemonCard PokemonData={null}/> */}
+      </div>
+      
+      </>
   )
 }
 

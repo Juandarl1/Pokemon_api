@@ -1,5 +1,18 @@
 @import "tailwindcss";
 
+
+@media (max-width: 768px) {
+    body {
+        background-color: #1a2540;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-color: #0f1829;
+    }
+}
+
 body{
     background-color: #283c61;
 }
