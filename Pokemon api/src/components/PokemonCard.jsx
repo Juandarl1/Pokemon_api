@@ -6,16 +6,16 @@ export default function PokemonCard({ PokemonData }) {
         }
     return (
         
-        <div className="bg-white rounded-lg shadow-md p-4 grid">
+        <div className="bg-white rounded-lg flex shadow-md p-4 flex-col items-center">
             
            
 
-            <div className="flex flex-col items-center mb-4">
+            <div className="flex flex-col items-center text-transform: uppercase">
                 <h2 className="text-xl font-bold mb-2">{PokemonData.name}</h2>
 
                 <div className="flex space-x-4">
-                    <img src={PokemonData.sprites.front_default} alt={PokemonData.name} className="w-20 h-auto mb-4" />
-                    <img src={PokemonData.sprites.back_default} alt={PokemonData.name} className="w-20 h-auto mb-4" />
+                    <img src={PokemonData.sprites.front_default} alt={PokemonData.name} className=" w-20 h-auto mb-4" />
+                    <img src={PokemonData.sprites.back_default} alt={PokemonData.name} className=" w-20 h-auto mb-4" />
                 </div>
 
              </div>

@@ -50,7 +50,7 @@ useEffect(() => {
         <h1 className='text-3xl font-bold'>Pokemon API</h1>
       </header>
     
-    <div className='grid grid-cols-3 gap-4 p-4'>
+    <div className='flex flex-wrap items-center gap-4 p-4'>
 
 
 
